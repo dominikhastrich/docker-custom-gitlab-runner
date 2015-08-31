@@ -4,7 +4,7 @@ VOLUME /output
 
 ADD ./run.sh /run.sh
 
-EXPOSE 80, 443
+EXPOSE 80 443
 
 # Gradle
 WORKDIR /usr/bin
