@@ -26,9 +26,5 @@ cat /etc/gitlab-runner/config.toml
 
 echo ""
 echo "Firing up GitLab CI runner"
-gitlab-ci-multi-runner run &>1
-
-sleep 20
-ls -la /output/
-cat /output/builds/b571500d/0/cround/cround-services.sh
+gitlab-ci-multi-runner run
 
