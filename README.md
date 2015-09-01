@@ -10,7 +10,7 @@ The GitLab CI runner has to be configured via the environment variables:
 - `CI_SSH` ssh key to identify the runner (base64 encoded)
 - `CI_SSH_PUB` public ssh key to identify the runner (base64 encoded)
 
-Exposes ports 80 and 443
+Exposes ports 80, 8080, 443 and 8443
 
 The runner will work in `/output` which is shared as a volume.
 

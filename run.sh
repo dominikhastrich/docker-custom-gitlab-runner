@@ -17,7 +17,7 @@ rm  /tmp/CI_SSH_PUB
 echo ""
 echo "configure runner"
 # generate configuration file
-echo "concurrent = 1\n\n[[runners]]\n  name = \"$CI_NAME\"\n  url = \"$CI_URL\"\n  token = \"$CI_TOKEN\"\n  limit = 1\n  exectuor = \"shell\"" > /etc/gitlab-runner/config.toml
+echo "concurrent = 1\n\n[[runners]]\n  name = \"$CI_NAME\"\n  url = \"$CI_URL\"\n  token = \"$CI_TOKEN\"\n  limit = 1\n  executor = \"shell\"\n" > /etc/gitlab-runner/config.toml
 cat /etc/gitlab-runner/config.toml
 
 echo ""
