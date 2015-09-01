@@ -12,7 +12,7 @@ The GitLab CI runner has to be configured via the environment variables:
 
 Exposes ports 80, 8080, 443, 8443, 10080 and 1111
 
-The runner will work in `/output` which is shared as a volume.
+The runner will work in `/data` which is shared as a volume.
 
 To work with the build the build script has to execute scripts which are part of the repository itself.
 

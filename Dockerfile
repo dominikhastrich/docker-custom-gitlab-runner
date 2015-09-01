@@ -1,8 +1,8 @@
 FROM java:8-jdk
 
-VOLUME /output
+VOLUME /data
 
-ADD ./run.sh /run.sh
+ADD ./run.sh /data/run.sh
 
 EXPOSE 80 443 8080 8443 10080 1111
 
@@ -17,6 +17,6 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 # GitLab CI Runner
 RUN wget -O /usr/local/bin/gitlab-ci-multi-runner https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-ci-multi-runner-linux-amd64
 RUN chmod +x /usr/local/bin/gitlab-ci-multi-runner
-RUN gitlab-ci-multi-runner install --user=root --working-directory=/output
+RUN gitlab-ci-multi-runner install --user=root --working-directory=/data
 
-CMD ["/bin/bash","/run.sh"]
+CMD ["/bin/bash","/data/run.sh"]
