@@ -19,4 +19,4 @@ RUN wget -O /usr/local/bin/gitlab-ci-multi-runner https://gitlab-ci-multi-runner
 RUN chmod +x /usr/local/bin/gitlab-ci-multi-runner
 RUN gitlab-ci-multi-runner install --user=root --working-directory=/output
 
-CMD ["sh","/run.sh"]
+CMD ["/bin/bash","/run.sh"]
