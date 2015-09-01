@@ -18,6 +18,7 @@ rm  /tmp/CI_SSH
 rm  /tmp/CI_SSH_PUB
 
 echo ""
+echo ""
 echo "configure runner"
 # generate configuration file
 echo -e "concurrent = 1\n\n[[runners]]\n  name = \"$CI_NAME\"\n  url = \"$CI_URL\"\n  token = \"$CI_TOKEN\"\n  limit = 1\n  executor = \"shell\"\n" > /etc/gitlab-runner/config.toml
@@ -25,4 +26,9 @@ cat /etc/gitlab-runner/config.toml
 
 echo ""
 echo "Firing up GitLab CI runner"
-gitlab-ci-multi-runner run
+gitlab-ci-multi-runner run &>1
+
+sleep 20
+ls -la /output/
+cat /output/builds/b571500d/0/cround/cround-services.sh
+
