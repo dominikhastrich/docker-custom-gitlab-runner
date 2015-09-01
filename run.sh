@@ -1,3 +1,4 @@
+#!/bin/bash
 echo ""
 echo "set ssh key"
 # Write env vars to disc for decoding
