@@ -2,7 +2,7 @@ FROM java:8-jdk
 
 VOLUME /data
 
-ADD ./run.sh /data/run.sh
+ADD ./run.sh /run.sh
 
 EXPOSE 80 443 8080 8443 10080 1111
 
@@ -19,4 +19,4 @@ RUN wget -O /usr/local/bin/gitlab-ci-multi-runner https://gitlab-ci-multi-runner
 RUN chmod +x /usr/local/bin/gitlab-ci-multi-runner
 RUN gitlab-ci-multi-runner install --user=root --working-directory=/data
 
-CMD ["/bin/bash","/data/run.sh"]
+CMD ["/bin/bash","/run.sh"]
