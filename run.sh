@@ -26,5 +26,10 @@ cat /etc/gitlab-runner/config.toml
 
 echo ""
 echo "Firing up GitLab CI runner"
-gitlab-ci-multi-runner run
+gitlab-ci-multi-runner start
+echo "status"
+gitlab-ci-multi-runner verify
 
+echo ""
+echo "monitor service log"
+tail -f /output/cround-services.log
