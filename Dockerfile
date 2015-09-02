@@ -13,6 +13,7 @@ RUN unzip gradle-2.6-all.zip
 RUN ln -s gradle-2.6 gradle && rm gradle-2.6-all.zip
 ENV GRADLE_HOME=/usr/bin/gradle
 ENV PATH=$PATH:$GRADLE_HOME/bin
+RUN chmod 777 $GRADLE_HOME/bin/gradle
 
 # GitLab CI Runner
 RUN wget -O /usr/local/bin/gitlab-ci-multi-runner https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-ci-multi-runner-linux-amd64
