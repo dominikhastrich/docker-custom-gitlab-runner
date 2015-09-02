@@ -16,6 +16,9 @@ cat ~/.ssh/id_rsa.pub
 # clean up
 rm  /tmp/CI_SSH
 rm  /tmp/CI_SSH_PUB
+# set access rights
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
 
 echo ""
 echo ""
@@ -26,4 +29,34 @@ cat /etc/gitlab-runner/config.toml
 
 echo ""
 echo "Firing up GitLab CI runner"
-gitlab-ci-multi-runner run
+gitlab-ci-multi-runner start
+
+# init log
+touch /data/services/my.log
+
+# clean up
+#watchman trigger-del /data/services service-update
+#watchman watch-del-all
+
+# action when change happened
+#watchman -j <<-EOT
+#["trigger", "/data/services", {
+#  "name": "service-update",
+#  "expression": ["match", "*.jar"],
+#  "command": ["/bin/bash /deploy.sh"],
+#  "stdout": ">>/my.log"
+#}]
+#EOT
+
+while [ ! -f /data/services/start.sh ]
+do
+  echo "Waiting for files"
+  echo "ls -la /data/services"
+  ls -la /data/services
+  sleep 5
+done
+
+/bin/bash /data/services/start.sh >> /data/services/my.log
+
+# monitor log
+tail -f /data/services/my.log
