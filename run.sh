@@ -55,6 +55,7 @@ do
   echo "Waiting for files"
   echo "ls -la /data/services"
   ls -la /data/services
+  gitlab-ci-multi-runner verify
   sleep 5
 done
 
