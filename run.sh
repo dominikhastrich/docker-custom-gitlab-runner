@@ -32,6 +32,7 @@ echo "Firing up GitLab CI runner"
 gitlab-ci-multi-runner start
 
 # init log
+mkdir -p /data/services
 touch /data/services/my.log
 
 # clean up
@@ -48,6 +49,7 @@ touch /data/services/my.log
 #}]
 #EOT
 
+trap "exit" INT
 while [ ! -f /data/services/start.sh ]
 do
   echo "Waiting for files"
