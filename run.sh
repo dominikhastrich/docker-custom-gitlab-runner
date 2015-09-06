@@ -28,8 +28,8 @@ echo -e "concurrent = 1\n\n[[runners]]\n  name = \"$CI_NAME\"\n  url = \"$CI_URL
 cat /etc/gitlab-runner/config.toml
 
 echo ""
-echo "Firing up GitLab CI runner"
-gitlab-ci-multi-runner start
+echo "Firing up service of GitLab CI runner"
+gitlab-ci-multi-runner start &
 
 # init log
 mkdir -p /data/services
