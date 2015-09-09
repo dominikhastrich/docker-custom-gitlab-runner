@@ -1,10 +1,8 @@
 FROM java:8-jdk
 
-#VOLUME /data/services
+VOLUME /data/services
 
 ADD ./run.sh /run.sh
-
-EXPOSE 80 443 8080 8443 10080 1111
 
 # Gradle
 WORKDIR /usr/bin

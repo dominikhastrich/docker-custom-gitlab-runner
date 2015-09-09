@@ -29,11 +29,12 @@ cat /etc/gitlab-runner/config.toml
 
 echo ""
 echo "Firing up service of GitLab CI runner"
-gitlab-ci-multi-runner start &
+#gitlab-ci-multi-runner start &
+gitlab-ci-multi-runner run
 
 # init log
-mkdir -p /data/services
-touch /data/services/my.log
+#mkdir -p /data/services
+#touch /data/services/my.log
 
 # clean up
 #watchman trigger-del /data/services service-update
@@ -49,17 +50,17 @@ touch /data/services/my.log
 #}]
 #EOT
 
-trap "exit" INT
-while [ ! -f /data/services/start.sh ]
-do
-  echo "Waiting for files"
-  echo "ls -la /data/services"
-  ls -la /data/services
-  gitlab-ci-multi-runner verify
-  sleep 5
-done
+#trap "exit" INT
+#while [ ! -f /data/services/start.sh ]
+#do
+#  echo "Waiting for files"
+#  echo "ls -la /data/services"
+#  ls -la /data/services
+#  gitlab-ci-multi-runner verify
+#  sleep 5
+#done
 
-/bin/bash /data/services/start.sh >> /data/services/my.log
+#/bin/bash /data/services/start.sh >> /data/services/my.log
 
 # monitor log
-tail -f /data/services/my.log
+#tail -f /data/services/my.log
